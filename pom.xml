@@ -17,13 +17,15 @@
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
+        <apollo.client.version>2.0.0</apollo.client.version>
+        <collector-client.version>2.0.1</collector-client.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.ctrip.framework.apollo</groupId>
             <artifactId>apollo-client</artifactId>
-            <version>2.0.0</version>
+            <version>${apollo.client.version}</version>
         </dependency>
 
         <dependency>
@@ -61,7 +63,7 @@
         <dependency>
             <groupId>io.daocloud.mircoservice</groupId>
             <artifactId>collector-client-starter-2x</artifactId>
-            <version>2.0.0-SNAPSHOT</version>
+            <version>${collector-client.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

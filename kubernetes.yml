@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: test
+  name: daoshop-shop-admin
+  labels:
+    app: daoshop-shop-admin
+spec:
+  selector:
+    matchLabels:
+      app: daoshop-shop-admin
+  template:
+    metadata:
+      labels:
+        app: daoshop-shop-admin
+    spec:
+      containers:
+        - image: daoshop-shop-admin:2.0.x
+          name: daoshop-shop-admin
+          resources:
+            requests:
+              memory: "1000Mi"
+              cpu: "200m"
+            limits:
+              memory: "1000Mi"
+              cpu: "200m"
+          ports:
+            - containerPort: 18083
+          volumeMounts:
+            - name: host-time
+              mountPath: /etc/localtime
+              readOnly: true
+          env:
+            - name: APOLLO_APP_ID
+              value: "gjjxaqllvb.dao_shop"
+            - name: APOLLO_CONFIGSERVICE
+              value: "http://127.0.10.2:8080"
+            - name: SW_AGENT_NAME
+              value: daoshop-shop-admin
+            - name: SW_AGENT_COLLECTOR_BACKEND_SERVICES
+              value: "127.0.10.3:11800"
+            - name: EUREKA_URL
+              value: "http://127.0.10.1:8761/eureka"
+      volumes:
+        - name: host-time
+          hostPath:
+            path: /etc/localtime
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: test
+  name: daoshop-shop-admin
+spec:
+  type: NodePort
+  ports:
+    - port: 18083
+  selector:
+    app: daoshop-shop-admin
+
+

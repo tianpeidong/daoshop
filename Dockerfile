@@ -4,20 +4,20 @@ LABEL maintainer="jian.tan@daocloud.io"
 
 ENV DIST_NAME=admin \
     APP_VERSION=0.0.1-SNAPSHOT \
-    AGENT_REPO_URL="http://nexus.mschina.io/nexus/content/repositories/labs/org/apache/skywalking/dmp/agent/2.0.0/agent-2.0.0.gz"
+    AGENT_REPO_URL="http://nexus.mschina.io/nexus/content/repositories/labs/org/apache/skywalking/dmp/agent/2.0.1/agent-2.0.1.gz"
 
 ADD $AGENT_REPO_URL /
 
 COPY target/"$DIST_NAME-$APP_VERSION.jar" /"$DIST_NAME.jar"
 
 RUN set -ex; \
-    tar -zxf /agent-2.0.0.gz; \
-    rm -rf agent-2.0.0.gz;
+    tar -zxf /agent-2.0.1.gz; \
+    rm -rf agent-2.0.1.gz;
     
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo "Asia/Shanghai" > /etc/timezone
 
-EXPOSE 19000
+EXPOSE 18083
 
 ENTRYPOINT java  -javaagent:/skywalking-agent/skywalking-agent.jar \
            -XX:+PrintFlagsFinal -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap $JAVA_OPTS -jar /$DIST_NAME.jar
