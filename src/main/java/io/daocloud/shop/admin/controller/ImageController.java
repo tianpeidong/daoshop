@@ -15,7 +15,7 @@ import java.util.List;
  * @desc ImageController
  * @project admin
  */
-@RestController
+//@RestController
 public class ImageController {
 
     @Value("#{'${daoshop.main.img:https://qiniu-download-public.daocloud.io/DaoCloud_MicroServices_Platform/dmp_logo.svg}'.split(',')}")
