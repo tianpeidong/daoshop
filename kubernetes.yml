@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: test
+  namespace: dmp
   name: daoshop-shop-admin
   labels:
     app: daoshop-shop-admin
@@ -41,6 +41,8 @@ spec:
               value: "127.0.10.3:11800"
             - name: EUREKA_URL
               value: "http://127.0.10.1:8761/eureka"
+            - name: API_VERSION
+              value: "v1"
       volumes:
         - name: host-time
           hostPath:
