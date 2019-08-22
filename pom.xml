@@ -62,11 +62,6 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>io.daocloud.mircoservice</groupId>
-            <artifactId>collector-client-starter-2x</artifactId>
-            <version>${collector-client.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
