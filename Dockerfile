@@ -4,8 +4,8 @@ LABEL maintainer="jian.tan@daocloud.io"
 
 ENV DIST_NAME=admin \
     APP_VERSION=0.0.1-SNAPSHOT \
-    AGENT_REPO_URL="https://nexus.daocloud.io/repository/labs/io/daocloud/mircoservice/skywalking/agent/2.0.1/agent-2.0.1.gz"
-    APIVERSION=v1
+    AGENT_REPO_URL="https://nexus.daocloud.io/repository/labs/io/daocloud/mircoservice/skywalking/agent/2.0.1/agent-2.0.1.gz" \
+    API_VERSION=v1
 
 ADD $AGENT_REPO_URL /
 
