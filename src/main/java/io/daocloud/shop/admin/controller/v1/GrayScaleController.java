@@ -17,7 +17,7 @@ public class GrayScaleController {
     @Value("${apiVersion}")
     private String apiVersion;
 
-    @GetMapping
+    @GetMapping("/image/main")
     public ResponseEntity testGrayScale() {
         return ResponseEntity.ok()
                 .header("version", apiVersion)
