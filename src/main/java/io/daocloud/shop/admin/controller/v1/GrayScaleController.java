@@ -1,7 +1,5 @@
 package io.daocloud.shop.admin.controller.v1;
 
-import io.daocloud.shop.admin.controller.v1.service.Sender;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,26 +11,23 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 创建时间: 19-8-20 下午9:33
  */
 @RestController
-@RequestMapping(path="/${apiVersion}")
+@RequestMapping(path="/v1")
 public class GrayScaleController {
 
-    @Value("${apiVersion}")
-    private String apiVersion;
+    @Value("${helloMsg}")
+    private String helloMsg;
 
-    @Autowired
-    private Sender sender;
+    @Value("${testMsg}")
+    private String testMsg;
 
-    @GetMapping("/image/main")
-    public ResponseEntity testGrayScale() {
-        return ResponseEntity.ok()
-                .header("version", apiVersion)
-                .body("this is is " + apiVersion);
+    @GetMapping
+    public ResponseEntity testKnoxApp() {
+        return ResponseEntity.ok(helloMsg);
     }
 
-    @GetMapping("/sendMsg")
-    public ResponseEntity sendMsg() {
-        sender.send();
-        return ResponseEntity.ok().build();
+    @GetMapping("/hello")
+    public ResponseEntity sayHello() {
+        return ResponseEntity.ok(testMsg);
     }
 
 

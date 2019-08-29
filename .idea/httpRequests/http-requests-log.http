@@ -1,0 +1,16 @@
+GET http://localhost:19094/knox/v1
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-08-29T125534.200.txt
+
+###
+
+GET http://localhost:18083/api/v1
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-08-23T114409.200.txt
+
+###
+
